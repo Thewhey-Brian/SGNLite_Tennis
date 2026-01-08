@@ -4,6 +4,10 @@
 
 SGNLite is a lightweight transformer model for skeleton-based action recognition, specifically designed for tennis swing detection and classification. It processes 2D pose sequences extracted from video to detect and classify different types of tennis strokes in real-time.
 
+## Pipeline Overview
+
+![SGNLite Pipeline](assets/pipeline.png)
+
 ## Key Advantages
 
 - **Graph-free design**: Learns joint relationships through attention - no predefined skeleton topology needed
@@ -27,8 +31,8 @@ SGNLite is a lightweight transformer model for skeleton-based action recognition
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/sgnlite.git
-cd sgnlite
+git clone https://github.com/Thewhey-Brian/SGNLite_Tennis.git
+cd SGNLite_Tennis
 
 # Install dependencies
 pip install -r requirements.txt
@@ -84,6 +88,8 @@ python scripts/train.py \
 
 ## Architecture
 
+![SGNLite Architecture](assets/architecture.png)
+
 ```
 Input: [N, 2, T, 17]  (batch, xy, frames, joints)
          ↓
@@ -123,8 +129,7 @@ SGNLite_release/
 │   └── sgnlite_base.yaml
 ├── notebooks/
 │   └── demo_inference.ipynb
-├── docs/
-│   └── MANUSCRIPT.md
+├── assets/               # Figures
 └── README.md
 ```
 
