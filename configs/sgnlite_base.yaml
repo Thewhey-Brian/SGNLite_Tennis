@@ -1,0 +1,46 @@
+# SGNLite Base Configuration
+# For tennis swing detection and classification
+
+# Model
+model:
+  config: "base"          # tiny, small, base, large
+  embed_dim: 256
+  depth: 6
+  num_heads: 8
+  mlp_ratio: 2.0
+  dropout: 0.2
+  head_dropout: 0.5
+
+# Data
+data:
+  target_frames: 20       # ~1.3s at 15fps
+  num_joints: 17          # COCO-17
+  use_velocity: true      # Include velocity features (4 channels)
+  normalize: "bbox"       # bbox, std, or none
+  val_ratio: 0.15
+
+# Augmentation
+augmentation:
+  flip_prob: 0.5
+  noise_std: 0.005
+  temporal_jitter: 2
+
+# Training
+training:
+  epochs: 50
+  batch_size: 128
+  lr: 1e-4
+  weight_decay: 1e-4
+  warmup_epochs: 5
+  label_smoothing: 0.05
+  grad_clip: 1.0
+
+# Loss
+loss:
+  type: "cross_entropy"
+  class_weight_scale: 0.3
+
+# Other
+seed: 42
+num_workers: 4
+device: "cuda"
